@@ -9,7 +9,7 @@ const router = express.Router();
 router.use(authMiddleware);
 
 // Get all expenses for the logged in user
-router.get("/", async (req: AuthRequest, res: Response) => {
+router.get("/", async (req: AuthRequest, res: Response): Promise<any> => {
   try {
     const expenses = await Expense.find({ userId: req.userId }).sort({
       date: -1,
@@ -24,7 +24,7 @@ router.get("/", async (req: AuthRequest, res: Response) => {
 });
 
 // Get total spending
-router.get("/total/spending", async (req: AuthRequest, res: Response) => {
+router.get("/total/spending", async (req: AuthRequest, res: Response): Promise<any> => {
   try {
     const expenses = await Expense.find({ userId: req.userId });
     const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
@@ -44,7 +44,7 @@ router.get("/total/spending", async (req: AuthRequest, res: Response) => {
 // Get expense by Category
 router.get(
   "/category/:categoryName",
-  async (req: AuthRequest, res: Response) => {
+  async (req: AuthRequest, res: Response): Promise<any> => {
     try {
       const { categoryName } = req.params;
       const expenses = await Expense.find({
@@ -67,7 +67,7 @@ router.get(
 );
 
 // Add new response;
-router.post("/", async (req: AuthRequest, res: Response) => {
+router.post("/", async (req: AuthRequest, res: Response): Promise<any> => {
   try {
     const { amount, category, description, date } = req.body;
     const expense = new Expense({
@@ -93,7 +93,7 @@ router.post("/", async (req: AuthRequest, res: Response) => {
 });
 
 // Update an Expense
-router.put("/:id", async (req: AuthRequest, res: Response) => {
+router.put("/:id", async (req: AuthRequest, res: Response): Promise<any> => {
   try {
     const { id } = req.params;
     const { amount, category, description, date } = req.body;
@@ -119,7 +119,7 @@ router.put("/:id", async (req: AuthRequest, res: Response) => {
 });
 
 // Delete
-router.delete("/:id", async (req: AuthRequest, res: Response) => {
+router.delete("/:id", async (req: AuthRequest, res: Response): Promise<any> => {
   try {
     const { id } = req.params;
     const expense = await Expense.findOne({

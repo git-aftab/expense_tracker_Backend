@@ -26,7 +26,7 @@ app.use(express.json());
 
 // Connect to mongoDB
 mongoose
-  .connect(process.env.MONGODB_URL!)
+  .connect(process.env.MONGODB_URI!)
   .then(() => {
     console.log("Connected to MongoDB atlas");
   })

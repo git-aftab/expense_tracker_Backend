@@ -11,7 +11,7 @@ const router = express.Router();
 router.use(authMiddleware);
 
 // Create order (Step 1: Frontend requests payment)
-router.post('/create-order', async (req: AuthRequest, res: Response) => {
+router.post('/create-order', async (req: AuthRequest, res: Response): Promise<any> => {
   try {
     // In production, we would use Razorpay SDK:
     // const Razorpay = require('razorpay');
@@ -50,7 +50,7 @@ router.post('/create-order', async (req: AuthRequest, res: Response) => {
 });
 
 // Verify payment (Step 2: After user completes payment on Razorpay)
-router.post('/verify-payment', async (req: AuthRequest, res: Response) => {
+router.post('/verify-payment', async (req: AuthRequest, res: Response): Promise<any> => {
   try {
     const { orderId, paymentId, signature } = req.body;
 
@@ -85,7 +85,7 @@ router.post('/verify-payment', async (req: AuthRequest, res: Response) => {
 });
 
 // Check premium status
-router.get('/premium-status', async (req: AuthRequest, res: Response) => {
+router.get('/premium-status', async (req: AuthRequest, res: Response): Promise<any> => {
   try {
     const user = await User.findById(req.userId);
     if (!user) {

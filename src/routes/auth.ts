@@ -43,7 +43,7 @@ router.post("/register", async (req: Request, res: Response) => {
         isPremium: user.isPremium,
       },
     });
-  } catch (error:any) {
+  } catch (error: any) {
     res.status(500).json({
       message: "Server Error",
       error: error.message,
@@ -82,22 +82,26 @@ router.post("/Login", async (req: Request, res: Response) => {
         isPremium: user.isPremium,
       },
     });
-  } catch (error:any) {
+  } catch (error: any) {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 });
 
 // Get current user (Protected Route)
-router.get("/me", authMiddleware, async (req: AuthRequest, res: Response) => {
-  try {
-    const user = await User.findById(req.userId).select("-password");
-    if (!user) {
-      return res.status(404).json({ message: "user not found" });
+router.get(
+  "/me",
+  authMiddleware,
+  async (req: AuthRequest, res: Response): Promise<any> => {
+    try {
+      const user = await User.findById(req.userId).select("-password");
+      if (!user) {
+        return res.status(404).json({ message: "user not found" });
+      }
+      res.json({ user });
+    } catch (error: any) {
+      res.status(500).json({ message: "Server Error", error: error.message });
     }
-    res.json({ user });
-  } catch (error:any) {
-    res.status(500).json({message: 'Server Error', error: error.message})
   }
-});
+);
 
 export default router;
