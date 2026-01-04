@@ -408,7 +408,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Your Name**
+**Md Aftab**
 - GitHub: [@git-aftab](https://github.com/git-aftab)
 - LinkedIn: [Md Aftab](https://linkedin.com/in/md-aftab-360996328)
 - Email: aftabdev18@gmail.com
@@ -422,9 +422,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-For support, email your.email@example.com or create an issue in the repository.
+For support, email aftabdev18@gmail.com or create an issue in the repository.
 
 ---
 
 
 **Keywords:** expense tracker api, node.js rest api, express typescript, mongodb crud, jwt authentication, payment gateway integration, razorpay api, user authentication, expense management api, typescript express server, mongodb atlas integration, secure api development, rest api tutorial, node.js backend
+
