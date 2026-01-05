@@ -48,8 +48,8 @@ A secure, production-ready REST API for expense tracking built with **Node.js**,
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/expense-tracker-api.git
-cd expense-tracker-api
+git clone https://github.com/git-aftab/expense_tracker_Backend.git
+cd expense_tracker_Backend
 ```
 
 2. **Install dependencies**
@@ -428,4 +428,5 @@ For support, email aftabdev18@gmail.com or create an issue in the repository.
 
 
 **Keywords:** expense tracker api, node.js rest api, express typescript, mongodb crud, jwt authentication, payment gateway integration, razorpay api, user authentication, expense management api, typescript express server, mongodb atlas integration, secure api development, rest api tutorial, node.js backend
+
 
