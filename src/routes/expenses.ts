@@ -24,22 +24,25 @@ router.get("/", async (req: AuthRequest, res: Response): Promise<any> => {
 });
 
 // Get total spending
-router.get("/total/spending", async (req: AuthRequest, res: Response): Promise<any> => {
-  try {
-    const expenses = await Expense.find({ userId: req.userId });
-    const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+router.get(
+  "/total/spending",
+  async (req: AuthRequest, res: Response): Promise<any> => {
+    try {
+      const expenses = await Expense.find({ userId: req.userId });
+      const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
 
-    res.json({
-      totalExpenses: expenses.length,
-      totalAmount: total,
-    });
-  } catch (error: any) {
-    res.status(500).json({
-      message: "Server Error",
-      error: error.message,
-    });
+      res.json({
+        totalExpenses: expenses.length,
+        totalAmount: total,
+      });
+    } catch (error: any) {
+      res.status(500).json({
+        message: "Server Error",
+        error: error.message,
+      });
+    }
   }
-});
+);
 
 // Get expense by Category
 router.get(
